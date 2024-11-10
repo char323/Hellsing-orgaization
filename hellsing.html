@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><style>
+			a {
+      color: white;  /* Set link color to white */}
+		/* Custom Audio Player Styles */
+        .audio-player {
+            width: 300px;
+            background: rgba(0, 0, 0, 0.8); /* Black with transparency (see-through) */
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            /* Position the audio player in the top-right corner */
+            position: absolute;
+            top: 10px; /* 10px from the top of the screen */
+            right: 10px; /* 10px from the right side of the screen */
+            z-index: 1000; /* Ensure it's on top of other content */
+        }
+
+        .audio-controls {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .audio-button {
+            background-color: #8B0000; /* Dark Red button background */
+            color: white; /* White text */
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .audio-button:hover {
+            background-color: #6B0000; /* Darker red on hover */
+        }
+
+        .progress-bar {
+            width: 100%;
+            margin-top: 10px;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.3); /* Light transparent background */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .progress-bar-filled {
+            height: 100%;
+            width: 0;
+            background-color: #8B0000; /* Dark Red progress fill */
+            border-radius: 5px;
+        }
+
+        .volume-bar {
+            margin-top: 10px;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.3); /* Light transparent background */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .volume-bar-filled {
+            height: 100%;
+            width: 100%;
+            background-color: #8B0000; /* Dark Red volume fill */
+            border-radius: 5px;
+        }
+        video {
+            position: absolute; /* Position it absolutely */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            min-width: 100%; /* Cover the entire width */
+            min-height: 100%; /* Cover the entire height */
+            width: auto; /* Auto width */
+            height: auto; /* Auto height */
+            transform: translate(-50%, -50%); /* Center it properly */
+            z-index: -1; /* Send it behind other content */
+        }
+        .content {
+            position: relative; /* For layering */
+            z-index: 1; /* Bring content in front of the video */
+            color: white; /* Example text color */
+            text-align: center; /* Center the text */
+            padding: 20px; /* Some padding */
+        }
+		body {  overflow: hidden; /* Prevents both vertical and horizontal scrolling */
+            margin: 0; /* Removes default body margin */  color:white /*  white text *\}
+			table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hellsing Ogranization</title>
+</head>
+<body>
+
+    <h1>Hellsing Organization</h1>
+<video width="640" height="360"  muted loop autoplay>
+        <source src="hellsing organization.mp4" type="video/mp4">
+    </video>
+<!-- Custom Audio Player -->
+    <div class="audio-player">
+        <audio id="audio" loop  src="Ransom.mp3"></audio>
+        
+        <div class="audio-controls">
+            <button class="audio-button" id="playPauseBtn">Play</button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar" id="progressBar">
+            <div class="progress-bar-filled" id="progressBarFilled"></div>
+        </div>
+
+        <!-- Volume Bar -->
+        <div class="volume-bar" id="volumeBar">
+            <div class="volume-bar-filled" id="volumeBarFilled"></div>
+        </div>
+    </div>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressBarFilled = document.getElementById('progressBarFilled');
+        const volumeBar = document.getElementById('volumeBar');
+        const volumeBarFilled = document.getElementById('volumeBarFilled');
+
+        // Play / Pause the audio
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = 'Pause';
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = 'Play';
+            }
+        });
+
+        // Update the progress bar as the audio plays
+        audio.addEventListener('timeupdate', () => {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressBarFilled.style.width = progress + '%';
+        });
+
+        // Allow the user to seek through the audio by clicking on the progress bar
+        progressBar.addEventListener('click', (e) => {
+            const progress = (e.offsetX / progressBar.offsetWidth) * audio.duration;
+            audio.currentTime = progress;
+        });
+
+        // Volume control
+        volumeBar.addEventListener('click', (e) => {
+            const volume = e.offsetX / volumeBar.offsetWidth;
+            audio.volume = volume;
+            volumeBarFilled.style.width = volume * 100 + '%';
+        });
+    </script>
+	<h2>Hellsing orgization one of the best crews in blox fruits come join now and tryout now <a color:"white" href="https://discord.gg/hellsingbf" target="_blank">Hellsing</a></h2> 
+<h3>crew 1v1s</h3>
+<p>new<p>
+<h3>crew organizaed wars </h3>
+</body>
+</html>
+
